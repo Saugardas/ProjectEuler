@@ -6,7 +6,7 @@ require_relative '../divider'
 sum = 1
 2.upto(500_000) do |i|
   sum += i
-  rez = sum.divisors_list(true).size
+  rez = sum.divisors_count(true)
   if rez > 500
     p "Число #{sum} имеет #{rez} делителей"
     break

@@ -12,4 +12,16 @@ class Integer
     list.sort
   end
 
+  # находим число делителей числа.
+  # [..] если nil
+  # [1..] если false
+  # [1..self] если true
+  def divisors_count extreme = nil
+    count = extreme ? 2 : (extreme.nil? ? 0 : 1)
+    (2..(Math.sqrt(self)).floor).each do |i|
+      count += 2 if (self % i).zero?
+    end
+    count
+  end
+
 end
