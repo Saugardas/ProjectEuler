@@ -9,7 +9,7 @@ class Integer
     (2..(Math.sqrt(self)).floor).each do |i|
       list << i << self/i if (self % i).zero?
     end
-    list.sort
+    list.uniq.sort
   end
 
   # находим число делителей числа.
