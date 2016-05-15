@@ -21,7 +21,7 @@ class Integer
     (2..(Math.sqrt(self)).floor).each do |i|
       count += 2 if (self % i).zero?
     end
-    count
+    (Math.sqrt(self) % 1).zero? ? count - 1 : count # для квадратов посчитали два раза
   end
 
 end
