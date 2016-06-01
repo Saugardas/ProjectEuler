@@ -21,7 +21,13 @@ class Integer
     (2..(Math.sqrt(self)).floor).each do |i|
       count += 2 if (self % i).zero?
     end
-    (Math.sqrt(self) % 1).zero? ? count - 1 : count # для квадратов посчитали два раза
+    self.square? ? count - 1 : count # для квадратов посчитали два раза
+  end
+
+  # true - число является квадратом
+  def square?
+    return false if self.negative?
+    (Math.sqrt(self) % 1).zero?
   end
 
 end

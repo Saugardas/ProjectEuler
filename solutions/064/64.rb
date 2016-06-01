@@ -1,5 +1,7 @@
 # Найти количество числе, меньших 10_000, квадртаный корень которых в виде цепной дроби имеет нечётные период (1322)
 
+require_relative '../../extension'
+
 # возвращаем период дроби
 def continued_fraction num
   m = [0]
@@ -13,4 +15,4 @@ def continued_fraction num
   end
 end
 
-p (1..9_999).reject{|n| (n**0.5 % 1).zero? }.count{|n| continued_fraction(n).size.odd?}
+p (1..9_999).reject(&:square?).count{|n| continued_fraction(n).size.odd?}

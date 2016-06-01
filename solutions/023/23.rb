@@ -6,7 +6,7 @@
   Найти суму всех чисел, которые НЕ могут быть записаны как сумма двух избыточных чисел
 =end
 
-require_relative '../../divider'
+require_relative '../../extension'
 require 'set'
 
 MAX = 28_123

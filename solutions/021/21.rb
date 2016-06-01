@@ -1,5 +1,5 @@
 # Посчитать сумму дружественных чисел, меньших 10_000
-require_relative '../../divider'
+require_relative '../../extension'
 
 amicable_numbers = []
 2.upto(10_000) do |i|
