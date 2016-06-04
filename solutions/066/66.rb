@@ -2,18 +2,6 @@
 
 require_relative '../../extension'
 
-def continued_fraction num
-  m = [0]
-  d = [1]
-  a = [(num**0.5).truncate]
-  loop do
-    m << d.last*a.last - m.last
-    d << (num - m.last**2)/d.last
-    a << ((a.first + m.last)/d.last).truncate
-    return [a[0], a[1..-2]] if m.zip(d, a).count([m.last, d.last, a.last]) == 2 # выходим, если набор уже встречался
-  end
-end
-
 # возвращаем приближение из числа в виде цепной дроби
 # int_part - целая часть, cont_part - период цепной дроби
 def from_continued int_part, cont_part
@@ -34,7 +22,7 @@ end
 max = [0, 0]
 1.upto(1_000).each do |d|
   next if d.square? # для квадратов нет решения
-  x = from_continued(*continued_fraction(d)).numerator
+  x = from_continued(*d.continued_fraction).numerator
   max = [x, d] if max.first < x
 end
 p max

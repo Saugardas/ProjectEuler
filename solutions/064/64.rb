@@ -2,17 +2,4 @@
 
 require_relative '../../extension'
 
-# возвращаем период дроби
-def continued_fraction num
-  m = [0]
-  d = [1]
-  a = [(num**0.5).truncate]
-  loop do
-    m << d.last*a.last - m.last
-    d << (num - m.last**2)/d.last
-    a << ((a.first + m.last)/d.last).truncate
-    return a[1..-2] if m.zip(d, a).count([m.last, d.last, a.last]) == 2 # выходим, если набор уже встречался
-  end
-end
-
-p (1..9_999).reject(&:square?).count{|n| continued_fraction(n).size.odd?}
+p (1..9_999).reject(&:square?).count{|n| n.continued_fraction.last.size.odd?}
