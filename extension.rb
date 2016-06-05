@@ -1,3 +1,5 @@
+require 'prime'
+
 class Integer
 
   # находим делители числа.
@@ -42,6 +44,13 @@ class Integer
       a << ((a.first + m.last)/d.last).truncate
       return [a[0], a[1..-2]] if m.zip(d, a).count([m.last, d.last, a.last]) == 2 # выходим, если набор уже встречался
     end
+  end
+
+  # Функция Эйлера, равная количеству натуральных чисел, меньших n и взаимно простых с ним.
+  def phi
+    return 0 if self < 1
+    return self - 1 if self.prime?
+    self * self.prime_division.map(&:first).map{|pr| 1 - 1r/pr }.reduce(:*) rescue 1
   end
 
 end
