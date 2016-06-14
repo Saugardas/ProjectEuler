@@ -13,7 +13,7 @@ def from_continued int_part, cont_part
   else
     cont_part = (cont_part*2)[0..-2]
   end
-  cont_part.reverse.each do |fr|
+  cont_part.reverse_each do |fr|
     common_fract = Rational(1.0, (fr + common_fract))
   end
   common_fract + int_part
