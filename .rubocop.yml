@@ -1,0 +1,17 @@
+LineLength:
+  Description: 'Limit lines to 130 characters.'
+  Max: 130
+AsciiComments:
+  Enabled: false
+FrozenStringLiteralComment:
+  Enabled: false
+AllCops:
+  TargetRubyVersion: 2.3
+Documentation:
+  Enabled: false
+ExtraSpacing:
+  Enabled: false
+IfUnlessModifier:
+  Enabled: false
+AndOr:
+  Enabled: false
