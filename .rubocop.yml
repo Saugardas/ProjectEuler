@@ -1,6 +1,8 @@
 LineLength:
   Description: 'Limit lines to 130 characters.'
   Max: 130
+MethodLength:
+  Max: 15
 AsciiComments:
   Enabled: false
 FrozenStringLiteralComment:
@@ -14,4 +16,6 @@ ExtraSpacing:
 IfUnlessModifier:
   Enabled: false
 AndOr:
+  Enabled: false
+SingleLineBlockParams:
   Enabled: false

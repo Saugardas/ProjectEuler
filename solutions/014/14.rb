@@ -2,20 +2,20 @@
 # Если число чётное - число делится на два (n/2)
 # Если не чётное - умножается на 3 и прибавляется единица (3n+1)
 # Такие последовательности сходятся к единице, хоть это и не доказано
-# Найти число, < 1_000_000, имеющее максимальное число промежуточных чисел перед получением единицы
+# Найти число, < 1_000_000, имеющее максимальное число промежуточных чисел перед получением единицы (837799)
 
-$xesh = {2 => 1}
+@cache = { 2 => 1 }
 
-def find_length num
+def find_length(num)
   # возвращаем число промежуточных чисел до первращения в 1
   local_num = num
   count = 0
-  while local_num > 1 do
-    local_num = local_num.even? ? local_num/2 : local_num*3 + 1
+  while local_num > 1
+    local_num = local_num.even? ? local_num / 2 : local_num * 3 + 1
     count += 1
-    if $xesh.key?(local_num)
-      $xesh[num] = count + $xesh[local_num]
-      return count + $xesh[local_num]
+    if @cache.key?(local_num)
+      @cache[num] = count + @cache[local_num]
+      return count + @cache[local_num]
     end
   end
   count
