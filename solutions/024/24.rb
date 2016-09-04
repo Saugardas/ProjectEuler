@@ -1,5 +1,5 @@
 # 012, 021, 102, 120, 201, 210 - словарные (упорядоченные) перестановки чисел 1, 2, 3
-# Найти миллионную словарную перестановку чисел 0..9
+# Найти миллионную словарную перестановку чисел 0..9 (2783915460)
 
 =begin
   Описание решения
@@ -19,7 +19,7 @@
 remainder = 999_999
 numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 numbers.count.downto(1) do |i|
-  diapazon = (1..i).reduce(:*)/i
+  diapazon = (1..i).reduce(:*) / i
   figure, remainder = remainder.divmod diapazon  # нацело
   print numbers[figure]
   numbers.delete numbers[figure]

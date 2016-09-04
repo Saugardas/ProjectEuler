@@ -14,11 +14,10 @@
 n = 3, 5, 7....
 =end
 
-
 SQUARE_SIZE = 1001
 sum = 1  # единица в середине
 3.step(SQUARE_SIZE, 2) do |i|
-  sum += 4*i*i - 6*i + 6
+  sum += 4 * i * i - 6 * i + 6
 end
 
 p sum # 669171001

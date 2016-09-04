@@ -10,10 +10,10 @@ require 'prime'
 
 PRIMES = [0, 1] + Prime.take(1000)
 
-def check_coeff a, b
+def check_coeff(a, b)
   x = 0
   loop do
-    return x, a, b unless PRIMES.include? x*x + a*x + b
+    return x, a, b unless PRIMES.include? x * x + a * x + b
     x += 1
   end
 end
