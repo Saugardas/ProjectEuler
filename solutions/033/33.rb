@@ -1,7 +1,7 @@
 require 'mathn'
 
 # получаем "сокращённую" дробь, иначе nil (49, 98 -> 4/8)
-def cancelling num, den
+def cancelling(num, den)
   num = num.to_s.chars
   den = den.to_s.chars
   commons = num & den  # общая часть, иногда их две (12/21)
@@ -16,7 +16,7 @@ fraction = Rational 1
   next if (numenator % 10).zero?
   (numenator + 1).upto 99 do |denominator|
     next if (denominator % 10).zero?
-    fraction *= numenator/denominator if numenator/denominator == cancelling(numenator, denominator)
+    fraction *= numenator / denominator if numenator / denominator == cancelling(numenator, denominator)
   end
 end
-p fraction.denominator
+p fraction.denominator  # 100

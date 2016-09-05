@@ -1,7 +1,7 @@
 # найти сумму чисел, сумма факториалов цифр в которых == самому числу
 # числа 8 цифр и более не подходят, ибо 9!*8 имеет меьнше восьми цифр (40730)
 
-factorials = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
+factorials = [1, 1, 2, 6, 24, 120, 720, 5_040, 40_320, 362_880]
 
 # перебор до 8*9!
-p (10..2_903_040).select { |number| number == number.to_s.chars.inject(0){|sum, el| sum + factorials[el.to_i] } }.reduce :+
+p (10..2_903_040).select { |number| number == number.to_s.chars.inject(0) { |sum, el| sum + factorials[el.to_i] } }.reduce :+

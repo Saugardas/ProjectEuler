@@ -6,7 +6,7 @@
 
 arr = []
 (1..9).to_a.permutation do |perm|
-  arr << perm[5..-1].join.to_i if perm[0]*perm[1..4].join.to_i == perm[5..-1].join.to_i || perm[0..1].join.to_i*perm[2..4].join.to_i == perm[5..-1].join.to_i
+  arr << perm[5..-1].join.to_i if perm[0] * perm[1..4].join.to_i == perm[5..-1].join.to_i || perm[0..1].join.to_i * perm[2..4].join.to_i == perm[5..-1].join.to_i
 end
 p arr.uniq.reduce :+
 
