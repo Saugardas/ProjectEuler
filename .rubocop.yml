@@ -19,3 +19,8 @@ AndOr:
   Enabled: false
 SingleLineBlockParams:
   Enabled: false
+Style/DotPosition:
+  EnforcedStyle: trailing
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+  IndentationWidth: 4

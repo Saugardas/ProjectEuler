@@ -5,23 +5,23 @@
 # Найти следуещее число, явл одновременно Tr, Pn, Hx (1533776805)
 
 class Integer
-  def is_pentagonal?
-    ((24*self + 1)**0.5).modulo(6) == 5
+  def pentagonal?
+    ((24 * self + 1)**0.5).modulo(6) == 5
   end
 end
 
 def hexagonal
   number = 1
   loop do
-    yield number*(2*number - 1)
+    yield number * (2 * number - 1)
     number += 1
   end
 end
 
 hexagonal do |i|
-  p i and break if i > 40755 && i.is_pentagonal?
+  p i and break if i > 40_755 && i.pentagonal?
 end
 
 # a(n+1) = 18817*a(n) + 1568 + 1358*(192*a(n)^2 + 32*a(n) + 1)^0.5
 # Последовательность A046180
-p 18817*40755 + 1568 + 1358*(192*40755**2 + 32*40755 + 1)**0.5
+p 18_817 * 40_755 + 1_568 + 1_358 * (192 * 40_755**2 + 32 * 40_755 + 1)**0.5

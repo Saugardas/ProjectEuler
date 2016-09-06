@@ -1,10 +1,10 @@
 # Найти такое нечётное составное число, что не может быть выражено как сумму простого и удвоенного квадрата (5777)
 
 require 'prime'
-@squares = Array.new(10_000){|i| 2*i*i}[1..-1]
+@squares = Array.new(10_000) { |i| 2 * i * i }[1..-1]
 
 # false - если число можно представить как сумму удвоенного квадрата и протого числа, true иначе
-def correct? num
+def correct?(num)
   @squares.each do |sq|
     return false if (num - sq).prime?
   end

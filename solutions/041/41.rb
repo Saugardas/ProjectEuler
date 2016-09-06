@@ -1,4 +1,4 @@
-# Найти самое большое панцифровое число
+# Найти самое большое панцифровое число (7652413)
 
 require 'prime'
 
@@ -12,4 +12,4 @@ require 'prime'
 end
 
 # однострочно
-p (1..7).to_a.permutation.map{|perm| perm.join.to_i}.select(&:prime?).max
+p (1..7).to_a.permutation.map { |perm| perm.join.to_i }.select(&:prime?).max
