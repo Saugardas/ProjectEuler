@@ -1,8 +1,8 @@
 # Число сочетаний r из n где n <= 100. Найти количество таких сочетаний, больших миллиона (4075)
 
 # n! / r!(n−r)!
-def c n, r
-  (1..n).reduce(:*)/((1..r).reduce(:*)*(1..(n - r)).reduce(:*))
+def c(n, r)
+  (1..n).reduce(:*) / ((1..r).reduce(:*) * (1..(n - r)).reduce(:*))
 end
 
 count = 0
@@ -15,5 +15,3 @@ p count
 
 # one-liner
 # p (2..100).inject([]){|arr, n| arr + (1..(n-1)).map {|r| (1..n).reduce(:*)/((1..r).reduce(:*)*(1..(n - r)).reduce(:*)) } }.count{|i| i > 1_000_000}
-
-

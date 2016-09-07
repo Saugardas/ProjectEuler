@@ -6,7 +6,7 @@ require 'prime'
 def diagonals
   buttom_right = 3
   loop do
-    yield Array.new(4) {|i| buttom_right**2 - i*(buttom_right - 1)}
+    yield Array.new(4) { |i| buttom_right**2 - i * (buttom_right - 1) }
     buttom_right += 2
   end
 end
@@ -16,5 +16,5 @@ primes = 0 # число простых чисел
 diagonals do |set|
   common += 4
   primes += set[1..-1].count(&:prime?) # первое число не проверяем, тк не простое (квадрат)
-  p set[0]**0.5 and break if common/primes >= 10 # длина квадрата - корень нижнего правого угла
+  p set[0]**0.5 and break if common / primes >= 10 # длина квадрата - корень нижнего правого угла
 end

@@ -7,4 +7,4 @@ arr = []
 end
 p arr.max
 
-p (2..99).flat_map{|a| (2..99).map{|b| (a**b).to_s.chars.map(&:to_i).reduce(:+) } }.max
+p (2..99).flat_map { |a| (2..99).map { |b| (a**b).to_s.chars.map(&:to_i).reduce(:+) } }.max

@@ -1,6 +1,6 @@
 # Число чисел Лишрел, меньших 10_000 (249)
 
-def lychrel? num
+def lychrel?(num)
   # для чисел, меньших 10_000, хватает 25 итераций
   25.times do
     num += num.to_s.reverse.to_i
@@ -9,4 +9,4 @@ def lychrel? num
   true
 end
 
-p (1..10_000).count{|i| lychrel? i}
+p (1..10_000).count { |i| lychrel? i }

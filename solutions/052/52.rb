@@ -3,8 +3,8 @@ heads = '10'..'16' # 16*6 - не переходим в следующий раз
 DIGITS = %w(0 1 2 3 4 5 6 7 8 9)
 
 # num*2. num*3, num*4, num*5, num*6 - одинаковый набор цифр
-def correct? num
-  (2..6).map{|i| (i*num).to_s.chars.sort}.uniq.size == 1
+def correct?(num)
+  (2..6).map { |i| (i * num).to_s.chars.sort }.uniq.size == 1
 end
 
 catch :done do

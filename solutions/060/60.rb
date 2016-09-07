@@ -1,9 +1,10 @@
-# Найти сумму числе в наборе из 5 простых чисел, таких что каждое число с кжадым при соединении даёт также простое число ([13, 5197, 5701, 6733, 8389] - 26033)
+# Найти сумму числе в наборе из 5 простых чисел, таких что каждое число с каждым при соединении
+# даёт также простое число ([13, 5197, 5701, 6733, 8389] - 26033)
 require 'prime'
 
 # true если каждое число в массиве при соединении с new_prime - даёт простое число
-def remarkable_set? *array, new_prime
-  array.all?{|num| (num.to_s + new_prime.to_s).to_i.prime? && (new_prime.to_s + num.to_s).to_i.prime?}
+def remarkable_set?(*array, new_prime)
+  array.all? { |num| (num.to_s + new_prime.to_s).to_i.prime? && (new_prime.to_s + num.to_s).to_i.prime? }
 end
 
 primes = Prime.take(1_100)[1..-1] # 2 не нужна, тк с ней пар не получится
