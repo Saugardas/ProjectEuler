@@ -2,4 +2,4 @@
 
 require_relative '../../extension'
 
-p (1..9_999).reject(&:square?).count{|n| n.continued_fraction.last.size.odd?}
+p (1..9_999).reject(&:square?).count { |n| n.continued_fraction.last.size.odd? }

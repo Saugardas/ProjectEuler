@@ -4,7 +4,7 @@
 # читаем из файла данные; преобразуем их в массив цифр
 def each_line
   File.open('PE_67') do |file|
-    file.each_line {|line| yield line.chop.split(" ").map(&:to_i)}
+    file.each_line { |line| yield line.chop.split(' ').map(&:to_i) }
   end
 end
 
@@ -13,7 +13,7 @@ def sum_of_two_arrays(arr, arr2)
   summ = []
   arr1 = [-Float::INFINITY] + arr + [-Float::INFINITY]
   arr2.each_with_index do |el, i|
-    summ[i] = [el + arr1[i], el + arr1[i+1]].max
+    summ[i] = [el + arr1[i], el + arr1[i + 1]].max
   end
   summ
 end

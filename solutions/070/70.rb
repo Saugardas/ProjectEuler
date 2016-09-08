@@ -5,6 +5,6 @@ require_relative '../../extension'
 arr = []
 3.upto(9_999_999) do |n|
   totient = n.phi
-  arr << [n, n/totient] if totient.to_i.to_s.chars.sort == n.to_s.chars.sort
+  arr << [n, n / totient] if totient.to_i.to_s.chars.sort == n.to_s.chars.sort
 end
 p arr.min_by(&:last)
