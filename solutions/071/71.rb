@@ -3,8 +3,8 @@
 # для каждого основания от 999 до 8 ищём дробь, ближе всего к 3/7
 max = 0
 1_000_000.downto(8) do |numer|
-  res = Rational((numer/7.0*3).floor, numer)
-  next if res == 3/7r
+  res = Rational((numer / 7.0 * 3).floor, numer)
+  next if res == 3 / 7r
   max = res if res > max
 end
 p max # (428570/999997)

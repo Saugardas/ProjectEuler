@@ -16,7 +16,7 @@ SIZE = @matrix.size
 1.upto(SIZE - 1) do |column|
   # получаем новый стобец
   new_column = Array.new(SIZE) do |row|
-    Array.new(SIZE) {|i| @matrix[i][column - 1] + get_horizontal(column, i, row)}.min
+    Array.new(SIZE) { |i| @matrix[i][column - 1] + get_horizontal(column, i, row) }.min
   end
   if column == SIZE - 1
     p new_column.min # минимальный путь

@@ -6,12 +6,12 @@ require 'set'
 
 MAX = 50_000_000
 
-prime_edge =  MAX**0.5 # простое число не может быть больше корня из 50млн (до 7069)
+prime_edge = MAX**0.5 # простое число не может быть больше корня из 50млн (до 7069)
 
 primes = Prime.take_while { |p| p < prime_edge }
 
 numbers = Set.new  # числа должны быть уникальны
-s = Time.now
+
 primes.each do |for_sq|
   primes.each do |for_th|
     primes.each do |for_fo|

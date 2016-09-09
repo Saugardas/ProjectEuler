@@ -20,4 +20,3 @@ count = 0
   count += 1 if numbers.count == 60
 end
 p count
-

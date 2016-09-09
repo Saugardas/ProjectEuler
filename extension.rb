@@ -1,15 +1,14 @@
 require 'prime'
 
 class Integer
-
   # находим делители числа.
   # [..] если nil
   # [1..] если false
   # [1..self] если true
-  def divisors_list extreme = nil
+  def divisors_list(extreme = nil)
     list = extreme ? [1, self] : (extreme.nil? ? [] : [1])
-    (2..(Math.sqrt(self)).floor).each do |i|
-      list << i << self/i if (self % i).zero?
+    (2..Math.sqrt(self).floor).each do |i|
+      list << i << self / i if (self % i).zero?
     end
     list.uniq.sort
   end
@@ -18,17 +17,17 @@ class Integer
   # [..] если nil
   # [1..] если false
   # [1..self] если true
-  def divisors_count extreme = nil
+  def divisors_count(extreme = nil)
     count = extreme ? 2 : (extreme.nil? ? 0 : 1)
-    (2..(Math.sqrt(self)).floor).each do |i|
+    (2..Math.sqrt(self).floor).each do |i|
       count += 2 if (self % i).zero?
     end
-    self.square? ? count - 1 : count # для квадратов посчитали два раза
+    square? ? count - 1 : count # для квадратов посчитали два раза
   end
 
   # true - число является квадратом
   def square?
-    return false if self.negative?
+    return false if negative?
     (Math.sqrt(self) % 1).zero?
   end
 
@@ -39,9 +38,9 @@ class Integer
     d = [1]
     a = [(self**0.5).truncate]
     loop do
-      m << d.last*a.last - m.last
-      d << (self - m.last**2)/d.last
-      a << ((a.first + m.last)/d.last).truncate
+      m << d.last * a.last - m.last
+      d << (self - m.last**2) / d.last
+      a << ((a.first + m.last) / d.last).truncate
       return [a[0], a[1..-2]] if m.zip(d, a).count([m.last, d.last, a.last]) == 2 # выходим, если набор уже встречался
     end
   end
@@ -49,8 +48,7 @@ class Integer
   # Функция Эйлера, равная количеству натуральных чисел, меньших n и взаимно простых с ним.
   def phi
     return 0 if self < 1
-    return self - 1 if self.prime?
-    self * self.prime_division.map(&:first).map{|pr| 1 - 1r/pr }.reduce(:*) rescue 1
+    return self - 1 if prime?
+    self * prime_division.map(&:first).map { |pr| 1 - 1r / pr }.reduce(:*) rescue 1
   end
-
 end
