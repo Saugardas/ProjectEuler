@@ -1,6 +1,6 @@
-#
+# (6531031914842725)
 
-DIGITS = (1..6).to_a
+DIGITS = (1..10).to_a
 
 # [a1, a2...an] -> [[a1, a2], [a2, a3]...[an, a1]]
 def pairs(ring)
@@ -20,7 +20,7 @@ def magic?(set)
 end
 
 # возвращаем строку, проходимся по набору по часовой стрелке
-def set_into_string(set)
+def string_from_set(set)
   arr = set.shift
   arr += set.delete(set.detect { |e| e[1] == arr.last }) while set.any?
   arr.join
@@ -30,15 +30,14 @@ end
 def find_magic_set(ring)
   tails = DIGITS - ring
   set = find_set(pairs(ring), tails)
-  p set_into_string(set) if magic?(set)
+  p "#{set} - #{string_from_set(set)}" if magic?(set)
 end
 
 # находим все варианты внутри кольца - перестановки за вычетом кольцевых перестановок
-rings = DIGITS.permutation(3).to_a
+# 10 - не может быть в кольце, тк число нужно найти 16 значное число
+rings = (DIGITS - [10]).permutation(5).to_a
 rings.map { |ring| rings.delete(ring.rotate); rings.delete(ring.rotate(2)) }
-
 
 rings.each do |ring|
   find_magic_set(ring)
 end
-
