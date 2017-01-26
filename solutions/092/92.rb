@@ -1,10 +1,10 @@
 # Количество чисел менее 10млн, цикл суммы квадратов цифр которых сходится к 89(8581146)
 
 def sum_of_squares(num)
-  num.to_s.chars.map { |i| i.to_i**2 }.reduce(:+)
+  num.digits.map { |i| i**2 }.reduce(:+)
 end
 
-@numbers = { 89 => true, 1 => false } # без хеша 2мин, с ни - 57 сек
+@numbers = { 89 => true, 1 => false }
 
 def correct_number?(number)
   num = number

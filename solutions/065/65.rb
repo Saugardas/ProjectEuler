@@ -7,4 +7,4 @@ cont_fract.each do |fr|
   b = Rational(1.0, (fr + b))
 end
 
-p (b + 2).numerator.to_s.chars.map(&:to_i).reduce(:+) # (272)
+p (b + 2).numerator.digits.reduce(:+) # (272)

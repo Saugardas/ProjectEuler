@@ -6,7 +6,7 @@
 # сумма факториалов цифр 169 = 1! + 6! + 9! = 363_601
 @cache = {}
 def factorial_sum(number)
-  @cache[number] || @cache[number] = number.to_s.chars.map { |num| @factorial[num.to_i] }.reduce(:+)
+  @cache[number] || @cache[number] = number.digits.map { |num| @factorial[num] }.reduce(:+)
 end
 
 count = 0
