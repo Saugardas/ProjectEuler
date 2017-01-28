@@ -19,7 +19,7 @@ primes[0..-5].each_with_index do |first_prime, i1|
         primes[(i1 + i2 + i3 + i4)..-1].each do |fifth_prime|
           next unless remarkable_set?(first_prime, second_prime, third_prime, fourth_prime, fifth_prime)
           p [first_prime, second_prime, third_prime, fourth_prime, fifth_prime]
-          p [first_prime, second_prime, third_prime, fourth_prime, fifth_prime].reduce(:+)
+          p [first_prime, second_prime, third_prime, fourth_prime, fifth_prime].sum
           exit
         end
       end

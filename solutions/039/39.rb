@@ -17,4 +17,4 @@ arr = []
   end
 end
 
-p arr.uniq.map { |el| el.reduce(:+) }.select { |el| el <= MAX }.each_with_object(Hash.new(0)) { |el, h| h[el] += 1 }.sort_by(&:last).last
+p arr.uniq.map(&:sum).select { |el| el <= MAX }.each_with_object(Hash.new(0)) { |el, h| h[el] += 1 }.sort_by(&:last).last

@@ -13,5 +13,5 @@ end
 
 1000.upto(10_000 - 2 * STEP) do |i|
   seq = sequence i
-  p seq.map(&:to_s).reduce(:+) if correct? seq
+  p seq.map(&:to_s).sum('') if correct?(seq)
 end

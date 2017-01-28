@@ -16,13 +16,13 @@ def primitive_triples
           [-a + 2*b + 2*c, -2*a + b + 2*c, -2*a + 2*b + 3*c]
       ]
     end
-    primitive_triples = next_generation.select { |trip| trip.reduce(:+) <= MAX_PERIMETER }
+    primitive_triples = next_generation.select { |trip| trip.sum <= MAX_PERIMETER }
   end
 end
 
 sizes = Hash.new(0)
 primitive_triples do |triple|
-  perimeter = triple.reduce(:+)
+  perimeter = triple.sum
   perimeter.step(MAX_PERIMETER, perimeter) { |w| sizes[w] += 1 }
 end
 p sizes.count { |_, v| v == 1 }

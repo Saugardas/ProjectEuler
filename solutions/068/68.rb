@@ -9,14 +9,14 @@ end
 
 # возвращаем набор - сопоставляем кольца (отсортировано по убыванию) с хвостами (отсортированными по возрастанию).
 def find_set(rings, tails)
-  rings = rings.sort_by { |ring| ring.reduce(:+) }.reverse
+  rings = rings.sort_by(&:sum).reverse
   tails = tails.sort
   tails.zip(rings).map(&:flatten)
 end
 
 # магический ли набор - сумма по всем направлениям одна
 def magic?(set)
-  set.map { |el| el.reduce(:+) }.uniq.one?
+  set.map(&:sum).uniq.one?
 end
 
 # возвращаем строку, проходимся по набору по часовой стрелке

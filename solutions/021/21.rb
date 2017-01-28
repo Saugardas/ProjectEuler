@@ -4,7 +4,7 @@ require_relative '../../extension'
 amicable_numbers = []
 2.upto(10_000) do |i|
   next if amicable_numbers.include? i
-  pretender = i.divisors_list(false).reduce :+
-  amicable_numbers << i << pretender if pretender != i and pretender.divisors_list(false).reduce(:+) == i
+  pretender = i.divisors_list(false).sum
+  amicable_numbers << i << pretender if pretender != i and pretender.divisors_list(false).sum == i
 end
-p amicable_numbers.reduce :+
+p amicable_numbers.sum

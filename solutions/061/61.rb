@@ -28,7 +28,7 @@ octag.each do |oct|
             hash[perm[4]].each do |h5|
               next unless continue?(h4, h5) && continue?(h5, oct)
               p [oct, h1, h2, h3, h4, h5]
-              p [oct, h1, h2, h3, h4, h5].reduce(:+)
+              p [oct, h1, h2, h3, h4, h5].sum
             end
           end
         end

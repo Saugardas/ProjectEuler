@@ -6,7 +6,7 @@ require_relative '../../extension'
 require 'bigdecimal'
 
 # используя BigDecimal =================================================================================================
-p (2..99).reject(&:square?).map { |num| BigDecimal(num).sqrt(100).to_s[2..101].chars.map(&:to_i).reduce(:+) }.reduce(:+)
+p (2..99).reject(&:square?).sum { |num| BigDecimal(num).sqrt(100).to_s[2..101].chars.sum(&:to_i) }
 
 # используя разложение в цепную дробь ==================================================================================
 
@@ -48,7 +48,7 @@ def get_sum_of_digits(number)
   # преобразуем её в большую дробь
   num = from_continued(0, get_extended_period(big_fract.last))
   # одно число до запятой и 99 после
-  big_fract.first + find_digits(num.numerator, num.denominator, 99).reduce(:+)
+  big_fract.first + find_digits(num.numerator, num.denominator, 99).sum
 end
 
-p (2..99).reject(&:square?).map { |num| get_sum_of_digits(num) }.reduce(:+)
+p (2..99).reject(&:square?).sum { |num| get_sum_of_digits(num) }

@@ -2,9 +2,9 @@
 arr = []
 2.upto(99) do |a|
   2.upto(99) do |b|
-    arr << (a**b).digits.reduce(:+)
+    arr << (a**b).digits.sum
   end
 end
 p arr.max
 
-p (2..99).flat_map { |a| (2..99).map { |b| (a**b).digits.reduce(:+) } }.max
+p (2..99).flat_map { |a| (2..99).map { |b| (a**b).digits.sum } }.max

@@ -13,4 +13,4 @@ Prime.each do |prime|
   break if primes.size == 11
 end
 
-p primes.reduce :+ # 748317
+p primes.sum # 748317

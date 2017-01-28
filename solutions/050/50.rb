@@ -6,5 +6,5 @@ def serial_combination(mass)
 end
 
 primes = Prime.each(4_000).to_a
-p serial_combination(primes).map { |sub_arr| [sub_arr.count, sub_arr.reduce(:+)] }.
+p serial_combination(primes).map { |sub_arr| [sub_arr.count, sub_arr.sum] }.
       select { |el| el.last < 1_000_000 and el.last.prime? }.sort_by(&:first).last

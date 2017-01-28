@@ -8,4 +8,4 @@ def correct(number)
   true
 end
 
-p ('0'..'9').to_a.permutation.select { |perm| correct perm.join }.map { |el| el.join.to_i }.reduce(:+)
+p ('0'..'9').to_a.permutation.select { |perm| correct(perm.join) }.sum { |el| el.join.to_i }

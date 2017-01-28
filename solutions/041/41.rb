@@ -3,7 +3,7 @@
 require 'prime'
 
 9.downto(2) do |i|
-  next if ((1..i).reduce(:+) % 3).zero?  # # 1..9 и 1..8 панцифровые числа не могут быть простыми, ибо деляться на 3
+  next if ((1..i).sum % 3).zero?  # # 1..9 и 1..8 панцифровые числа не могут быть простыми, ибо деляться на 3
   arr = []
   (1..i).to_a.permutation.each do |perm|
     arr << perm.join.to_i if perm.join.to_i.prime?

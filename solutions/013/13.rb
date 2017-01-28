@@ -103,4 +103,4 @@ numbers = %w(
   53503534226472524250874054075591789781264330331690
 ).map(&:to_i)
 
-p numbers.reduce(:+).to_s[0, 10]
+p numbers.sum.to_s[0, 10]

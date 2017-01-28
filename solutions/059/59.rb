@@ -14,7 +14,7 @@ end
   # проверям получившуюся расшифровку
   if str =~ / the /  # лучше ^[A-Za-z\d\s,\.\(\)';!]+$
     p str
-    p str.chars.map(&:ord).reduce(:+)
+    p str.chars.sum(&:ord)
     break
   end
 end

@@ -7,7 +7,7 @@ def get_horizontal(column, from, to)
   from.send((from > to ? :downto : :upto), to) do |ind|
     ret << @matrix[ind][column]
   end
-  ret.reduce(:+)
+  ret.sum
 end
 
 @matrix = File.open('PE_82').each_line.map { |line| line.scan(/\d+/).map(&:to_i) }

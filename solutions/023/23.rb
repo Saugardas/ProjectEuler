@@ -11,7 +11,7 @@ MAX = 28_123
 
 # Определяем тип числа)
 def abudant?(number)
-  number < number.divisors_list(false).reduce(:+)
+  number < number.divisors_list(false).sum
 end
 
 # список избыточных чисел
@@ -28,4 +28,4 @@ end
 
 # получаем массив чисел, которые не могут быть записаны как сумма двух избыточных
 arr = (1...MAX).to_a - summs.to_a
-p arr.reduce(:+) # 4179871
+p arr.sum # 4179871
