@@ -1,4 +1,4 @@
-# Считаем покерные раздачи из файла, надо посчитать, сколько раз первый игрок выигрывает (379)
+# Считаем покерные раздачи из файла, надо посчитать, сколько раз первый игрок выигрывает (376)
 
 class HandDealt
   CARDS = { '2' => 2, '3' => 3, '4' => 4, '5' => 5, '6' => 6, '7' => 7, '8' => 8, '9' => 9,
@@ -22,7 +22,7 @@ class HandDealt
     # разделяем на масти и значения
     cards, suits = cards.map(&:chars).transpose
     cards.map! { |c| CARDS[c] }.sort!.reverse!
-    same_suit = suits.uniq.size == 1
+    same_suit = suits.uniq.one?
     # определяем тип набора
     # если нет повторов
     if cards.uniq.size == cards.size

@@ -8,10 +8,10 @@ def sequence(number)
 end
 
 def correct?(seq)
-  seq.all?(&:prime?) and seq.map { |num| num.to_s.chars.sort }.uniq.size == 1
+  seq.all?(&:prime?) and seq.map { |num| num.digits.sort }.uniq.one?
 end
 
 1000.upto(10_000 - 2 * STEP) do |i|
-  seq = sequence i
+  seq = sequence(i)
   p seq.map(&:to_s).sum('') if correct?(seq)
 end
