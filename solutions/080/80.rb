@@ -2,11 +2,11 @@
 # в десятичном представлении и сложить эти сто сумм
 # (40886)
 
-require_relative '../../extension'
+require_relative '../../lib/number_theory'
 require 'bigdecimal'
 
 # используя BigDecimal =================================================================================================
-p (2..99).reject(&:square?).sum { |num| BigDecimal(num).sqrt(100).to_s[2..101].chars.sum(&:to_i) }
+p (2..99).reject { |n| NumberTheory.square?(n) }.sum { |num| BigDecimal(num).sqrt(100).to_s[2..101].chars.sum(&:to_i) }
 
 # используя разложение в цепную дробь ==================================================================================
 
@@ -44,11 +44,11 @@ end
 # находим сумму первых ста цифр числа
 def get_sum_of_digits(number)
   # находим цепную дробь
-  big_fract = number.continued_fraction
+  big_fract = NumberTheory.continued_fraction(number)
   # преобразуем её в большую дробь
   num = from_continued(0, get_extended_period(big_fract.last))
   # одно число до запятой и 99 после
   big_fract.first + find_digits(num.numerator, num.denominator, 99).sum
 end
 
-p (2..99).reject(&:square?).sum { |num| get_sum_of_digits(num) }
+p (2..99).reject { |n| NumberTheory.square?(n) }.sum { |num| get_sum_of_digits(num) }

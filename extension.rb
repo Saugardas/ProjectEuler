@@ -31,20 +31,6 @@ class Integer
     (Math.sqrt(self) % 1).zero?
   end
 
-  # возвращем цепную дробь sqrt(self)
-  # [целая часть, [период]]
-  def continued_fraction
-    m = [0]
-    d = [1]
-    a = [(self**0.5).truncate]
-    loop do
-      m << d.last * a.last - m.last
-      d << (self - m.last**2) / d.last
-      a << ((a.first + m.last) / d.last).truncate
-      return [a[0], a[1..-2]] if m.zip(d, a).count([m.last, d.last, a.last]) == 2 # выходим, если набор уже встречался
-    end
-  end
-
   # Функция Эйлера, равная количеству натуральных чисел, меньших n и взаимно простых с ним.
   def phi
     return 0 if self < 1
