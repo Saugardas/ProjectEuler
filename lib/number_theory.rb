@@ -29,6 +29,18 @@ module NumberTheory
     [res.numerator, res.denominator]
   end
 
+  # решение уравнения Пелля x^2 - dy^2 = 1, возвращает пару (x, y) в блок
+  def self.pells_equation_generator(d)
+    x1, y1 = pells_equation(d) # первая пара
+    x, y = x1, y1
+    loop do
+      yield x, y
+      next_x = x1 * x + d * y1 * y
+      next_y = x1 * y + y1 * x
+      x, y = next_x, next_y
+    end
+  end
+
   # true - число является квадратом
   def self.square?(number)
     return false if number.negative?
