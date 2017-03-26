@@ -2,4 +2,4 @@
 
 require_relative '../../lib/number_theory'
 
-p (1..9_999).reject { |n| NumberTheory.square?(n) }.count { |n| NumberTheory.continued_fraction(n).last.size.odd? }
+p (1..9_999).count { |n| NumberTheory.continued_fraction(n).last.size.odd? }

@@ -3,6 +3,7 @@ module NumberTheory
   # возвращает корень из number в виде цепной дроби
   # [целая часть, [период]]
   def self.continued_fraction(number)
+    return [Math.sqrt(number), []] if square?(number)
     m = [0]
     d = [1]
     a = [(number**0.5).truncate]
