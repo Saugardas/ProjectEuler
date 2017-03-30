@@ -30,11 +30,4 @@ class Integer
     return false if negative?
     (Math.sqrt(self) % 1).zero?
   end
-
-  # Функция Эйлера, равная количеству натуральных чисел, меньших n и взаимно простых с ним.
-  def phi
-    return 0 if self < 1
-    return self - 1 if prime?
-    self * prime_division.map(&:first).map { |pr| 1 - 1r / pr }.reduce(:*) rescue 1
-  end
 end

@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require 'prime'
+
 module NumberTheory
   # возвращает корень из number в виде цепной дроби
   # [целая часть, [период]]
@@ -46,5 +48,13 @@ module NumberTheory
   def self.square?(number)
     return false if number.negative?
     (Math.sqrt(number) % 1).zero?
+  end
+
+  # Функция Эйлера, равная количеству натуральных чисел, меньших n и взаимно простых с ним.
+  def self.euler_phi(number)
+    raise RangeError if number < 1
+    return 1 if number == 1
+    return number - 1 if number.prime?
+    number * number.prime_division.map(&:first).map { |pr| Rational(pr - 1, pr) }.reduce(:*)
   end
 end
