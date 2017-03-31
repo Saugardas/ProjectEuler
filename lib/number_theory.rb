@@ -57,4 +57,13 @@ module NumberTheory
     return number - 1 if number.prime?
     number * number.prime_division.map(&:first).map { |pr| Rational(pr - 1, pr) }.reduce(:*)
   end
+
+  # список делителей числа
+  def self.divisors_list(number)
+    list = [1]
+    (2..Math.sqrt(number).floor).each do |i|
+      list << i << number / i if (number % i).zero?
+    end
+    list.uniq.sort
+  end
 end

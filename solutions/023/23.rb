@@ -4,14 +4,14 @@
 # Любое целое, > 28123, тожет быть записано в виде суммы двух избыточных
 # Найти суму всех чисел, которые НЕ могут быть записаны как сумма двух избыточных чисел (4179871)
 
-require_relative '../../extension'
+require_relative '../../lib/number_theory'
 require 'set'
 
 MAX = 28_123
 
 # Определяем тип числа)
 def abudant?(number)
-  number < number.divisors_list(false).sum
+  number < NumberTheory.divisors_list(number).sum
 end
 
 # список избыточных чисел
