@@ -66,4 +66,13 @@ module NumberTheory
     end
     list.uniq.sort
   end
+
+  # число делителей числа
+  def self.divisors_count(number)
+    count = 1
+    (2..Math.sqrt(number).floor).each do |i|
+      count += 2 if (number % i).zero?
+    end
+    square?(number) ? count - 1 : count # для квадратов посчитали два раза
+  end
 end
