@@ -60,6 +60,7 @@ module NumberTheory
 
   # список делителей числа
   def self.divisors_list(number)
+    return [] unless number.positive?
     list = [1]
     (2..Math.sqrt(number).floor).each do |i|
       list << i << number / i if (number % i).zero?
