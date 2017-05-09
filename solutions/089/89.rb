@@ -1,8 +1,3 @@
 # 743
 
-def normalization(roman)
-  roman.sub('VIIII', 'IX').sub('IIII', 'IV').sub('LXXXX', 'XC').sub('XXXX', 'XL').sub('DCCCC', 'CM').sub('CCCC', 'CD')
-end
-
-numbers = IO.readlines('PE_89').map(&:strip)
-p numbers.sum { |roman| roman.size - normalization(roman).size }
+p IO.readlines('PE_89').map(&:strip).sum { |roman| roman.size - roman.gsub(/VIIII|IIII|LXXXX|XXXX|DCCCC|CCCC/, '__').size }
