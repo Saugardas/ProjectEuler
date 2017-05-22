@@ -11,11 +11,11 @@ MAX = 28_123
 
 # Определяем тип числа)
 def abudant?(number)
-  number < NumberTheory.divisors_list(number).sum
+  number < NumberTheory.divisors_sum(number)
 end
 
 # список избыточных чисел
-list = (12...MAX).to_a.select { |el| abudant? el }
+list = (12...MAX).to_a.select { |el| abudant?(el) }
 
 # получаем множество чисел, которые могут быть записаны как сумма двух избыточных
 summs = Set.new

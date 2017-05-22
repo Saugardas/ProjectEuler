@@ -70,10 +70,13 @@ module NumberTheory
 
   # число делителей числа
   def self.divisors_count(number)
-    count = 1
-    (2..Math.sqrt(number).floor).each do |i|
-      count += 2 if (number % i).zero?
-    end
-    square?(number) ? count - 1 : count # для квадратов посчитали два раза
+    return nil if number < 1
+    number.prime_division.inject(1) { |result, (_, count)| result * (count + 1) } - 1
+  end
+
+  # сумма делителей числа
+  def self.divisors_sum(number)
+    return nil if number < 1
+    number.prime_division.inject(1) { |result, (prime, count)| result * (prime**(count + 1) - 1) / (prime - 1) } - number
   end
 end
