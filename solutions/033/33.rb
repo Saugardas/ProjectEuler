@@ -6,8 +6,8 @@ def cancelling(num, den)
   den = den.to_s.chars
   commons = num & den  # общая часть, иногда их две (12/21)
   return if commons.empty? || commons.size == 2 # если их две - то при любом сокращении получим 1
-  num = num.join.sub *commons, ''
-  den = den.join.sub *commons, ''
+  num = num.join.sub(*commons, '')
+  den = den.join.sub(*commons, '')
   num.to_i / den.to_i
 end
 
