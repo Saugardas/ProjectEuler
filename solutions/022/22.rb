@@ -17,11 +17,4 @@ def get_alphabets_summ(name)
   name.chars.inject(0) { |sum, char| sum + char.ord - OFFSET }
 end
 
-summa = 0
-get_names.each_with_index do |name, index|
-  summa += get_alphabets_summ(name) * (index + 1)
-end
-p summa
-
-# однострочный ужас =)
-# File.open('PE_22') {|file| p file.read.scan(/\w+/).sort.each_with_index.inject(0){|sum, el| sum + el.first.chars.inject(0){|sum, char| sum + char.ord - 'A'.ord + 1} * (el.last + 1)} }
+p get_names.each.with_index(1).sum { |name, index| get_alphabets_summ(name) * index }
