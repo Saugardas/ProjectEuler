@@ -9,8 +9,8 @@ end
 8.upto(50) do |dig_count|
   cube_hash = Hash.new([]) # для каждого набора цифр - количество чисел, образующих этот набор
   range_for(dig_count).each do |num|
-    # по цифрам сортируем
-    cube_hash[(num**3).to_s.chars.sort.join] += [num]
+    # сортировка по цифрам
+    cube_hash[(num**3).digits.sort.join] += [num]
   end
   if cube_hash.select! { |_, value| value.size > 4 }.any?
     p cube_hash.first
