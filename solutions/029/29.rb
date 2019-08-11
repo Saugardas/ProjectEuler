@@ -1,9 +1,3 @@
-# Число уникальных цифр в наборе a^b, где a - 2..100 и b - 2..100 (9183)
+# Число уникальных чисел в наборе a^b, где a - 2..100 и b - 2..100 (9183)
 
-array = []
-2.upto(100) do |i|
-  2.upto(100) do |j|
-    array << i**j
-  end
-end
-p array.uniq.size
+p [*2..100].repeated_permutation(2).map { |x| x.reduce(:**) }.uniq.size
